@@ -21,6 +21,7 @@ printf '\n[4/5] إنشاء ملف الإعداد...\n'
 cd "$PROJECT_DIR"
 if [ ! -f .env ]; then cp .env.example .env; fi
 mkdir -p "$HOME/.local/bin"
+mkdir -p "$PREFIX_DIR/bin"
 
 printf '\n[5/5] إنشاء أوامر مختصرة...\n'
 cat > "$HOME/.local/bin/aeon-start" <<EOF
@@ -38,6 +39,10 @@ cat > "$HOME/.local/bin/aeon-status" <<'EOF'
 tmux has-session -t aeon-agent 2>/dev/null && echo "AEON agent is running" || echo "AEON agent is stopped"
 EOF
 chmod +x "$HOME/.local/bin/aeon-start" "$HOME/.local/bin/aeon-stop" "$HOME/.local/bin/aeon-status"
+cp "$HOME/.local/bin/aeon-start" "$PREFIX_DIR/bin/aeon-start"
+cp "$HOME/.local/bin/aeon-stop" "$PREFIX_DIR/bin/aeon-stop"
+cp "$HOME/.local/bin/aeon-status" "$PREFIX_DIR/bin/aeon-status"
+chmod +x "$PREFIX_DIR/bin/aeon-start" "$PREFIX_DIR/bin/aeon-stop" "$PREFIX_DIR/bin/aeon-status"
 
 if ! echo ":$PATH:" | grep -q ":$HOME/.local/bin:"; then
   echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
