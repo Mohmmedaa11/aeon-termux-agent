@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+aeon_agent/__init__.py
+aeon_agent/llm.py
+aeon_agent/server.py
+aeon_termux_agent.egg-info/PKG-INFO
+aeon_termux_agent.egg-info/SOURCES.txt
+aeon_termux_agent.egg-info/dependency_links.txt
+aeon_termux_agent.egg-info/requires.txt
+aeon_termux_agent.egg-info/top_level.txt
+tests/test_safe_network.py
+tools/__init__.py
+tools/safe_network.py
