@@ -33,7 +33,7 @@ bash deploy/vllm.sh
 export LLM_BASE_URL=http://127.0.0.1:8000/v1
 export MODEL_NAME=AEON-7/Qwen3.8-27B-AEON-ULTIMATE-UNCENSORED-BF16
 export ALLOWED_TARGETS=example.com,localhost,127.0.0.1
-uvicorn aeon_agent.server:app --host 0.0.0.0 --port 8787
+python -m aeon_agent.server
 ```
 
 ## تشغيل من Termux

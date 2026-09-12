@@ -14,9 +14,8 @@ pkg update -y
 printf '\n[2/5] تثبيت المتطلبات...\n'
 pkg install -y python git openssh tmux
 
-printf '\n[3/5] تحديث pip وتثبيت مكتبات الوكيل...\n'
-python -m pip install --upgrade pip setuptools wheel
-python -m pip install --no-cache-dir -e "$PROJECT_DIR"
+printf '\n[3/5] تثبيت الوكيل (بدون Rust أو حزم أصلية)...\n'
+python -m pip install --no-cache-dir --no-deps -e "$PROJECT_DIR"
 
 printf '\n[4/5] إنشاء ملف الإعداد...\n'
 cd "$PROJECT_DIR"
