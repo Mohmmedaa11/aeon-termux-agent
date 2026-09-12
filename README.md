@@ -39,21 +39,26 @@ uvicorn aeon_agent.server:app --host 0.0.0.0 --port 8787
 ## تشغيل من Termux
 
 ```bash
-pkg update && pkg install python openssh tmux
+pkg install git
 git clone https://github.com/Mohmmedaa11/aeon-termux-agent
 cd aeon-termux-agent
-pip install -e .
-cp .env.example .env
-bash termux/start.sh
+bash termux/install.sh
+nano .env
 ```
 
 للوصول الآمن إلى جهاز التشغيل:
 
 ```bash
-ssh -N -L 8787:127.0.0.1:8787 user@your-server
+ssh -N -L 8000:127.0.0.1:8000 user@your-server
 ```
 
-ثم استخدم `http://127.0.0.1:8787` على الهاتف.
+هذا النفق يجعل vLLM الموجود على الخادم متاحًا للهاتف على `127.0.0.1:8000`. اتركه مفتوحًا، ثم في جلسة Termux أخرى شغّل:
+
+```bash
+aeon-start
+```
+
+الوكيل نفسه يعمل على `http://127.0.0.1:8787`.
 
 ## مثال API
 
